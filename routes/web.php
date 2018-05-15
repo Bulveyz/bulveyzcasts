@@ -12,6 +12,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('catalog', 'CatalogController@index');
     Route::resource('discussion', 'DiscussionController');
     Route::get('/blog/{article}', 'BlogController@show');
+    Route::resource('article', 'ArticleController');
     Route::post('/blog/comment', 'BlogController@commentStore');
     Route::resource('blog', 'BlogController');
 

@@ -29,14 +29,14 @@ class BlogController extends Controller
 
     public function create()
     {
-        return view('blog.create');
+        //
     }
 
     public function store(Request $request)
     {
         if (Gate::allows('admin',  Auth::user())) {
             $this->validate($request, [
-               'title' => 'required|string|min:3|max:100',
+               'title' => 'required|string|min:3|max:200',
                'content' => 'required',
                'published' => 'required|numeric|max:1'
             ]);

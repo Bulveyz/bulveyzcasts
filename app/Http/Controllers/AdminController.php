@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function dashboard()
     {
         $casts = Cast::all();
-        $articles = Article::all()->count();
-        return view('admin.dashboard', compact('casts'));
+        $articles = Article::all();
+        return view('admin.dashboard', compact(['casts', 'articles']));
     }
 }

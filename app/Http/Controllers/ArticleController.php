@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         //
@@ -24,7 +28,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog.create');
     }
 
     /**
@@ -57,7 +61,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('blog.edit', compact('article'));
     }
 
     /**
@@ -69,17 +73,25 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        if (Gate::allows('admin', Auth::user())) {
+            $this->validate($request, [
+                'title' => 'required|string|min:3|max:200',
+                'content' => 'required',
+                'published' => 'required|numeric|max:1'
+            ]);
+
+            $article->update($request->except('_token', '_method'));
+
+            return back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Article  $article
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Article $article)
     {
-        //
+        if  (Gate::allows('admin', Auth::user())) {
+            $article->delete();
+
+            return back();
+        }
     }
 }
