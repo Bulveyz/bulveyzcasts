@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700,800,900')
+
+html, body
+  font-family: "Exo 2", sans-serif !important
+  color: $black
+
+a
+    color: $black
+    transition: .3s
+
+a:hover
+    text-decoration: none
+    color: $bg-premain
+
+.bg-main
+    background-color: $bg-main !important
+
+.bg-premain
+    background-color: $bg-premain !important
+
+.gray-color
+    color: $gray !important
+
+.gray-black-color
+    color: $black-gray !important
+
+
+section
+    margin-bottom: 120px
+
+.main-link-button
+    background-color: $bg-main
+    color: #fff
+    padding: 10px 30px
+    transition: .4s
+    &:hover
+        background-color: $bg-premain
+        color: #fff
+        text-decoration: none
+
+main
+    overflow: hidden
+
+.card-header
+    background-color: $bg-main
+    color: #fff
+
+.form-control:focus
+    border: 1px solid $bg-main !important
+
+.cast
+    position: relative
+    overflow: hidden
+    background-color: $bg-main
+    height: 200px
+    color: #fff
+    font-size: 25px
+    &:hover .cast__preview
+        top: 0
+
+
+.cast__preview
+    position: absolute
+    top: 100%
+    width: 100%
+    height: 100%
+    padding: 5px
+    background-color: rgba(0, 0, 0, 0.71)
+    transition: top .3s
+    font-size: 18px
+
+.cast__date
+    position: absolute
+    font-size: 18px
+    top: 0
+    left: 0
+    letter-spacing: 1px
+    padding: 0 3px
+    background-color: $bg-premain
+
+.btn:focus
+    box-shadow: none !important
+
+.nav-item .fa
+    font-size: 22px
+
+.episode__part
+    width: 100px
+    height: 90px
+    color: #fff
+    font-size: 40px
+    border-radius: 50%
+
+.v-line
+    height: 90px
+    width: 2px
+    background-color: $gray
+    margin-left: 32px
+    margin-bottom: 10px
+    margin-top: 10px
+
+.episode__part-title
+    margin-left: 30px
+
+.comment__avatar
+    width: 90px
+    height: 90px
+    background-color: $bg-main
+    border-radius: 50%
+    color: #fff
+    font-size: 24px
+
+.page-item.active .page-link
+    background-color: #ea5152
+    border-color: #ee5253
+
+.page-link
+    color: $black-gray
+    &:hover
+        color: #fff
+        background-color: $bg-premain
+
+.custom-select
+    height: 47px
+
+.radius-0
+    border-radius: 0 !important
+
+.badge-danger
+    background-color: $bg-main
+
+.alert.alert-main
+    background-color: $bg-main
+    color: #fff
+    & a
+        color: #f3f3f3 !important
+        &:hover
+            text-decoration: underline
+
+.category__item
+    margin-bottom: 20px
+
+.list-group-item
+    position: absolute
+    width: 100%
+    left: 0
+    top: 40px
+    z-index: 1000
+
+.list-group-item:first-child
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+
+.search
+    margin-top: 10px
