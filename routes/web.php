@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'web'], function () {
@@ -15,6 +14,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('article', 'ArticleController');
     Route::post('/blog/comment', 'BlogController@commentStore');
     Route::resource('blog', 'BlogController');
+
+    Route::get('storage/{folder}/{subfolder}/{filename}', 'FinderController@load');
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('user/profile', 'UserController@profile');

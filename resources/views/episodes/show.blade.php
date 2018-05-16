@@ -15,8 +15,8 @@
         <div class="col-12">
             <section>
                 <video class="embed-responsive embed-responsive-16by9 mb-5" controls>
-                    <source src="{{Storage::url($episode->videoPath)}}" type="video/mp4">
-                    <source src="{{Storage::url($episode->videoPath)}}" type="video/ogg">
+                    <source src="{{asset('storage/'. $episode->videoPath)}}" type="video/mp4">
+                    <source src="{{asset('storage/'. $episode->videoPath)}}" type="video/ogg">
                     Your browser does not support the video tag.
                 </video>
     
