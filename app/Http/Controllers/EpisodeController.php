@@ -7,6 +7,7 @@ use App\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class EpisodeController extends Controller
 {
@@ -64,7 +65,15 @@ class EpisodeController extends Controller
     public function destroy($id)
     {
         if (Gate::allows('admin',  Auth::user())) {
-            $episode = Episode::find($id)->firstOrFail()->delete();
+            $episode = Episode::find($id)->firstOrFail();
+
+            $media = $episode->videoPath;
+
+            if ($episode->delete()) {
+                Storage::delete($media);
+            }
+
+            return back();
         }
     }
 }
