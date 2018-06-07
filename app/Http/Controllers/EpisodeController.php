@@ -39,8 +39,7 @@ class EpisodeController extends Controller
     {
         if (Gate::allows('admin',  Auth::user())) {
             $this->validate($request, [
-               'title' => 'required',
-               'video' => 'required|file',
+               'title' => 'required'
                'cast_id' => 'required|numeric|max:11|exists:casts,id'
             ]);
 
@@ -52,9 +51,9 @@ class EpisodeController extends Controller
             $part = Episode::where('cast_id', $request->cast_id)->count() + 1;
 
             // Добавляем путь до видео в запрос
-            $request->merge(['videoPath' => $path]);
+            // $request->merge(['videoPath' => $path]);
 
-            $episode = Episode::create($request->except('_token') + ['part' => $part]);
+            $episode = Episode::create($request->except('_token') + ['part' => $part, 'videoPath' => $path]);
 
             return redirect('episode/'.$episode->id);
         } else {
