@@ -39,7 +39,7 @@ class EpisodeController extends Controller
     {
         if (Gate::allows('admin',  Auth::user())) {
             $this->validate($request, [
-               'title' => 'required'
+               'title' => 'required',
                'cast_id' => 'required|numeric|max:11|exists:casts,id'
             ]);
 
