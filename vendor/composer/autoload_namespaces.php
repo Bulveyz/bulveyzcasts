@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Yandex\\Tests' => array($vendorDir . '/nixsolutions/yandex-php-library/tests'),
+    'Yandex' => array($vendorDir . '/nixsolutions/yandex-php-library/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),

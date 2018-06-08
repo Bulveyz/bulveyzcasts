@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@section('css')
+    <link href="{{asset('libs/video.css')}}" rel="stylesheet">
+@endsection
 
 @section('main')
     @if(session()->has('success'))
@@ -14,11 +17,19 @@
     <div class="row">
         <div class="col-12">
             <section>
-                <video class="embed-responsive embed-responsive-16by9 mb-5" controls>
-                    <source src="{{asset('storage/'. $episode->videoPath)}}" type="video/mp4">
-                    <source src="{{asset('storage/'. $episode->videoPath)}}" type="video/ogg">
-                    Your browser does not support the video tag.
+                {{--<video class="embed-responsive embed-responsive-16by9 mb-5" controls>--}}
+                    {{--<source src="https://getfile.dokpub.com/yandex/get/https://yadi.sk/i/DBPxbiyp3XRJ4U" type="video/mp4">--}}
+                    {{--<source src="https://getfile.dokpub.com/yandex/get/https://yadi.sk/i/DBPxbiyp3XRJ4U.mov" type="video/ogg">--}}
+                    {{--Your browser does not support the video tag.--}}
+                {{--</video>--}}
+    
+                <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"  data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+                       poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                    <source src="{{$episode->videoPath}}" type='video/mp4'>
+                    <source src="{{$episode->videoPath}}" type='video/webm'>
                 </video>
+    
+    
     
                 <h1 class="mb-5">{{$episode->part}}. {{$episode->title}}</h1>
                 @if(isset($next))
@@ -59,3 +70,5 @@
         </div>
     </div>
 @endsection
+
+@section('js') <script src="{{asset('libs/video.js')}}"></script> @endsection
