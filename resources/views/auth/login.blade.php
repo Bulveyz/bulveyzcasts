@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="loginlogin" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                            <label for="loginlogin" class="col-sm-4 col-form-label text-md-right">{{ __('Логин') }}</label>
 
                             <div class="col-md-6">
                                 <input id="login" type="text" class="form-control{{ $errors->has('login') ? ' is-invalid' : '' }}" name="login" value="{{ old('login') }}" required autofocus>

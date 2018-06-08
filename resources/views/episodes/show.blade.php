@@ -23,7 +23,7 @@
                     {{--Your browser does not support the video tag.--}}
                 {{--</video>--}}
     
-                <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"  data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+                <video class="embed-responsive embed-responsive-16by9 mb-5 video-js" id="my-video" controls preload="auto"  data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
                        poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
                     <source src="{{$episode->videoPath}}" type='video/mp4'>
                     <source src="{{$episode->videoPath}}" type='video/webm'>
